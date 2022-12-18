@@ -1,10 +1,11 @@
-const { Schema, model } = require("mongoose");
+const { Schema, Types, model } = require("mongoose");
 
+// Schema to create thought model
 const reactionSchema = new Schema(
   {
     reactionId: {
       type: Schema.Types.ObjectId,
-      default: () => new Schema.Types.ObjectId(),
+      default: () => new Types.ObjectId(),
     },
     reactionBody: {
       type: String,
@@ -17,7 +18,7 @@ const reactionSchema = new Schema(
     },
     createAt: {
       type: Date,
-      default: Date.now().toLocaleDateString("en-US"),
+      default: () => new Date().toLocaleDateString("en-US"),
     },
   },
   {
@@ -37,7 +38,7 @@ const thoughtSchema = new Schema(
     },
     createAt: {
       type: Date,
-      default: Date.now().toLocaleDateString("en-US"),
+      default: () => new Date().toLocaleDateString("en-US"),
     },
     username: {
       type: String,
